@@ -1,5 +1,5 @@
 require('dotenv').config();
-const VERIFY_TOKEN = process.env.VERIFY_TOKEN;
+
 // process.env.NAME_VARIABLES
 let getHomePage = (req, res) => {
     return res.render('homepage.ejs');
@@ -32,7 +32,7 @@ let postWebhook = (req, res) => {
 let getWebhook = (req, res) => {
 
     // Your verify token. Should be a random string.
-    //let VERIFY_TOKEN = process.env.VERIFY_TOKEN;
+    let VERIFY_TOKEN = process.env.VERIFY_TOKEN;
     // Parse the query params
     let mode = req.query['hub.mode'];
     let token = req.query['hub.verify_token'];
