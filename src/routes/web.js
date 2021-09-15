@@ -5,7 +5,7 @@ let router = express.Router();
 
 let initWebRouters = (app) => {
     router.get("/", homeController.getHomePage);
-
+    router.get('/setup-persistent-menu', homeController.setupPersistentMenu);
     router.post('/webhook', homeController.postWebhook);
     router.get('/webhook', homeController.getWebhook);
 

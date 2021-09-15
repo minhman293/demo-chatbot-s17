@@ -144,8 +144,52 @@ function callSendAPI(sender_psid, response) {
     });
 }
 
+let setupPersistentMenu = (req, res) => {
+
+    let request_body = {
+        "persistent_menu": [
+            {
+                "locale": "default",
+                "composer_input_disabled": false,
+                "call_to_actions": [
+                    {
+                        "type": "postback",
+                        "title": "Khởi Động Lại Bot",
+                        "payload": "RESTART_BOT"
+                    },
+                    {
+                        "type": "web_url",
+                        "title": "Facebook Admin nè",
+                        "url": "https://www.facebook.com/tranghansieu",
+                        "webview_height_ratio": "full"
+                    },
+
+                ]
+            }
+        ]
+    }
+
+    // Send the HTTP request to the Messenger Platform
+    request({
+        "uri": `https://graph.facebook.com/v11.0/me/messenger_profile?access_token=${PAGE_ACCESS_TOKEN}`,
+        "qs": { "access_token": PAGE_ACCESS_TOKEN },
+        "method": "POST",
+        "json": request_body
+    }, (err, res, body) => {
+        console.log(body)
+        if (!err) {
+            console.log('Setup mersistent menu success!')
+        } else {
+            console.error("Unable to Setup user profile:" + err);
+        }
+    });
+    return res.send("Setup mersistent menu success!");
+}
+
+
 module.exports = {
     getHomePage: getHomePage,
     postWebhook: postWebhook,
-    getWebhook: getWebhook
+    getWebhook: getWebhook,
+    setupPersistentMenu: setupPersistentMenu
 };
