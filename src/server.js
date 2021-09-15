@@ -4,6 +4,9 @@ import viewEngine from "./configs/viewEngine";
 import webRoutes from "./routes/web";
 
 let app = express();
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
 
 //config view engine
 viewEngine(app);
@@ -11,8 +14,6 @@ viewEngine(app);
 //config web routes 
 webRoutes(app);
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded( {extended: true} ));
 
 let port = process.env.PORT || 1100
 
