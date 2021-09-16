@@ -116,6 +116,19 @@ function handleMessage(sender_psid, received_message) {
 
 // Handles messaging_postbacks events
 function handlePostback(sender_psid, received_postback) {
+    let response;
+
+    // Get the payload for the postback
+    let payload = received_postback.payload;
+
+    // Set the response based on the postback payload
+    if (payload === 'yes') {
+        response = { "text": "Thanks!" }
+    } else if (payload === 'no') {
+        response = { "text": "Oops, try sending another image." }
+    }
+    // Send the message to acknowledge the postback
+    callSendAPI(sender_psid, response);
 
 }
 
@@ -131,7 +144,7 @@ function callSendAPI(sender_psid, response) {
 
     // Send the HTTP request to the Messenger Platform
     request({
-        "uri": "https://graph.facebook.com/v2.6/me/messages",
+        "uri": "https://graph.facebook.com/v11.0/me/messages",
         "qs": { "access_token": process.env.PAGE_ACCESS_TOKEN },
         "method": "POST",
         "json": request_body
@@ -144,52 +157,11 @@ function callSendAPI(sender_psid, response) {
     });
 }
 
-let setupPersistentMenu = (req, res) => {
 
-    let request_body = {
-        "persistent_menu": [
-            {
-                "locale": "default",
-                "composer_input_disabled": false,
-                "call_to_actions": [
-                    {
-                        "type": "postback",
-                        "title": "Khởi Động Lại Bot",
-                        "payload": "RESTART_BOT"
-                    },
-                    {
-                        "type": "web_url",
-                        "title": "Facebook Admin nè",
-                        "url": "https://www.facebook.com/tranghansieu",
-                        "webview_height_ratio": "full"
-                    },
-
-                ]
-            }
-        ]
-    }
-
-    // Send the HTTP request to the Messenger Platform
-    request({
-        "uri": `https://graph.facebook.com/v11.0/me/messenger_profile?access_token=${PAGE_ACCESS_TOKEN}`,
-        "qs": { "access_token": PAGE_ACCESS_TOKEN },
-        "method": "POST",
-        "json": request_body
-    }, (err, res, body) => {
-        console.log(body)
-        if (!err) {
-            console.log('Setup mersistent menu success!')
-        } else {
-            console.error("Unable to Setup user profile:" + err);
-        }
-    });
-    return res.send("Setup mersistent menu success!");
-}
 
 
 module.exports = {
     getHomePage: getHomePage,
     postWebhook: postWebhook,
-    getWebhook: getWebhook,
-    setupPersistentMenu: setupPersistentMenu
+    getWebhook: getWebhook
 };
