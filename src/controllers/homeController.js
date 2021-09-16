@@ -1,5 +1,8 @@
-require('dotenv').config();
+//require('dotenv').config();
+import dotenv from "dotenv";
+dotenv.config();
 import request from "request";
+
 
 // process.env.NAME_VARIABLES
 let getHomePage = (req, res) => {
@@ -157,11 +160,32 @@ function callSendAPI(sender_psid, response) {
     });
 }
 
+let setupProfile = (req, res) => {
+    // Construct the message body
+    let request_body = {
+        "get_started": { "payload": "GET_STARTED" },
+        "whitelistend_domains": ["https://tmm-chatbot.herokuapp.com/"]
+    }
 
+    // Send the HTTP request to the Messenger Platform
+    request({
+        "uri": `https://graph.facebook.com/v12.0/me/messenger_profile?access_token=EAAIhrerqUjIBANoz5jcAUywcaPayrWVljCLEXk4zdIINKzMjXw4xQxJI3arsXQ0EE4gZC2nJumLvShS5SG4KZCPtyUHBw9m5dkskavlnMIccwP0RpxwuZB2P8ZBD51a0l0qZB5cLooduHgZB4c6doXscUfJGYlzVi6r6ldAyZAxqU4SvH5TKSRN`,
+        "qs": { "access_token": "EAAIhrerqUjIBANoz5jcAUywcaPayrWVljCLEXk4zdIINKzMjXw4xQxJI3arsXQ0EE4gZC2nJumLvShS5SG4KZCPtyUHBw9m5dkskavlnMIccwP0RpxwuZB2P8ZBD51a0l0qZB5cLooduHgZB4c6doXscUfJGYlzVi6r6ldAyZAxqU4SvH5TKSRN" },
+        "method": "POST",
+        "json": request_body
+    }, (err, res, body) => {
+        if (!err) {
+            console.log('setup profile success')
+        } else {
+            console.error("Unable to setup profile:" + err);
+        }
+    });
+}
 
 
 module.exports = {
     getHomePage: getHomePage,
     postWebhook: postWebhook,
-    getWebhook: getWebhook
+    getWebhook: getWebhook,
+    setupProfile: setupProfile
 };
