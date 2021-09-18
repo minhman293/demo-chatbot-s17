@@ -3,7 +3,7 @@ import request from "request";
 import { response } from "express";
 const la = require("./lang");
 
-let handleGetStarted = (sender_psid, response) => {
+let handleGetStarted = () => {
     let response = {
         "attachment": {
             "type": "template",

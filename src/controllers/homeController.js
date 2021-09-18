@@ -125,8 +125,14 @@ function handlePostback(sender_psid, received_postback) {
     let payload = received_postback.payload;
 
     // Set the response based on the postback payload
-
-    switch (payload) {
+    if (payload === 'yes') {
+        response = { "text": "Thanks!" };
+    } else if (payload === 'no') {
+        response = { "text": "Oops, try sending another image." };
+    } else if (payload === 'GET_STARTED') {
+        homeServices.handleGetStarted(sender_psid, response);
+    }
+    /*switch (payload) {
         case 'yes':
             response = { "text": "Thanks!" };
             break;
@@ -136,7 +142,7 @@ function handlePostback(sender_psid, received_postback) {
         case 'GET_STARTED':
             await homeServices.handleGetStarted(sender_psid, response);
             break;
-    }
+    }*/
     // Send the message to acknowledge the postback
     callSendAPI(sender_psid, response);
 
