@@ -123,15 +123,27 @@ function handlePostback(sender_psid, received_postback) {
 
     // Get the payload for the postback
     let payload = received_postback.payload;
-
+    switch (payload) {
+        case 'yes':
+            response = { "text": "Thanks!" }
+            break;
+        case 'no':
+            response = { "text": "Oops, try sending another image." }
+            break;
+        case 'GET_STARTED':
+            response = { "text": "wrfvouw" }
+            break;
+        default:
+            response = { "text": "wrfvouwwrgw" }
+    }
     // Set the response based on the postback payload
-    if (payload === 'yes') {
+    /*if (payload === 'yes') {
         response = { "text": "Thanks!" };
     } else if (payload === 'no') {
         response = { "text": "Oops, try sending another image." };
     } else if (payload === 'GET_STARTED') {
-        homeServices.handleGetStarted();
-    }
+        homeServices.handleGetStarted(sender_psid, response);
+    }*/
     callSendAPI(sender_psid, response);
 
 }
