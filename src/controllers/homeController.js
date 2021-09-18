@@ -2,7 +2,7 @@
 import dotenv from "dotenv";
 dotenv.config();
 import request from "request";
-
+import homeServices from "../services/homeServices";
 
 // process.env.NAME_VARIABLES
 let getHomePage = (req, res) => {
@@ -125,10 +125,17 @@ function handlePostback(sender_psid, received_postback) {
     let payload = received_postback.payload;
 
     // Set the response based on the postback payload
-    if (payload === 'yes') {
-        response = { "text": "Thanks!" }
-    } else if (payload === 'no') {
-        response = { "text": "Oops, try sending another image." }
+
+    switch (payload) {
+        case 'yes':
+            response = { "text": "Thanks!" };
+            break;
+        case 'no':
+            response = { "text": "Oops, try sending another image." };
+            break;
+        case 'GET_STARTED':
+            await homeServices.handleGetStarted(sender_psid, response);
+            break;
     }
     // Send the message to acknowledge the postback
     callSendAPI(sender_psid, response);
