@@ -118,7 +118,7 @@ function handleMessage(sender_psid, received_message) {
 }
 
 // Handles messaging_postbacks events
-function handlePostback(sender_psid, received_postback) {
+async function handlePostback(sender_psid, received_postback) {
     let response;
 
     // Get the payload for the postback
@@ -131,7 +131,8 @@ function handlePostback(sender_psid, received_postback) {
             response = { "text": "Oops, try sending another image." }
             break;
         case 'GET_STARTED':
-            response = { "text": "wrfvouw" }
+            await homeServices.handleGetStarted(sender_psid, response);
+
             break;
         default:
             response = { "text": "wrfvouwwrgw" }
