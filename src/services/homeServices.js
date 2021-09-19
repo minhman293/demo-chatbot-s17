@@ -27,26 +27,6 @@ let callSendAPI = (sender_psid, response) => {
     });
 }
 
-// let handleGetStarted = () => {
-//     let response = {
-//         "attachment": {
-//             "type": "template",
-//             "payload": {
-//                 "template_type": "button",
-//                 "text": la.INTRO,
-//                 "buttons": [
-//                     {
-//                         "type": "postback",
-//                         "title": "Giải pháp",
-//                         "payload": "INTRO"
-//                     }
-//                 ]
-//             }
-//         }
-//     }
-//     return response;
-// }
-
 let handleGetStarted = (sender_psid) => {
     return new Promise(async (resolve, reject) => {
         try {
@@ -55,11 +35,11 @@ let handleGetStarted = (sender_psid) => {
                     "type": "template",
                     "payload": {
                         "template_type": "button",
-                        "text": la.INTRO,
+                        "text": la.START,
                         "buttons": [
                             {
                                 "type": "postback",
-                                "title": "Giải pháp",
+                                "title": "Khám phá ngay!",
                                 "payload": "INTRO"
                             }
                         ]
@@ -74,6 +54,12 @@ let handleGetStarted = (sender_psid) => {
     })
 }
 
+let handleINTRO = (sender_psid) => {
+    let response = { "text": la.INTRO };
+    callSendAPI(sender_psid, response);
+}
+
 module.exports = {
     handleGetStarted: handleGetStarted,
+    handleINTRO: handleINTRO
 }

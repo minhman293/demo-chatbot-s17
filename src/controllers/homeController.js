@@ -132,19 +132,14 @@ async function handlePostback(sender_psid, received_postback) {
             break;
         case 'GET_STARTED':
             await homeServices.handleGetStarted(sender_psid, response);
-
+            break;
+        case 'INTRO':
+            await homeServices.handleIntro(sender_psid, response);
             break;
         default:
             response = { "text": "wrfvouwwrgw" }
     }
     // Set the response based on the postback payload
-    /*if (payload === 'yes') {
-        response = { "text": "Thanks!" };
-    } else if (payload === 'no') {
-        response = { "text": "Oops, try sending another image." };
-    } else if (payload === 'GET_STARTED') {
-        homeServices.handleGetStarted(sender_psid, response);
-    }*/
     callSendAPI(sender_psid, response);
 
 }
