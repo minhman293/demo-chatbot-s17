@@ -54,7 +54,7 @@ let handleGetStarted = (sender_psid) => {
     })
 }
 
-let handleINTRO = (sender_psid) => {
+let handleIntro = (sender_psid) => {
     return new Promise(async (resolve, reject) => {
         try {
             let response = { "text": la.INTRO };
@@ -70,5 +70,5 @@ let handleINTRO = (sender_psid) => {
 
 module.exports = {
     handleGetStarted: handleGetStarted,
-    handleINTRO: handleINTRO
+    handleIntro: handleIntro
 }
