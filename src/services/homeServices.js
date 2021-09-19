@@ -55,8 +55,17 @@ let handleGetStarted = (sender_psid) => {
 }
 
 let handleINTRO = (sender_psid) => {
-    let response = { "text": la.INTRO };
-    callSendAPI(sender_psid, response);
+    return new Promise(async (resolve, reject) => {
+        try {
+            let response = { "text": la.INTRO };
+            await callSendAPI(sender_psid, response);
+
+            resolve('done');
+        } catch (e) {
+            reject(e);
+        }
+    })
+
 }
 
 module.exports = {
