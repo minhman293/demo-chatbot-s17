@@ -2,6 +2,7 @@ require("dotenv").config();
 import request from "request";
 import { response } from "express";
 const la = require("./lang");
+const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 
 let callSendAPI = (sender_psid, response) => {
     // Construct the message body
@@ -15,7 +16,7 @@ let callSendAPI = (sender_psid, response) => {
     // Send the HTTP request to the Messenger Platform
     request({
         "uri": "https://graph.facebook.com/v11.0/me/messages",
-        "qs": { "access_token": process.env.PAGE_ACCESS_TOKEN },
+        "qs": { "access_token": PAGE_ACCESS_TOKEN },
         "method": "POST",
         "json": request_body
     }, (err, res, body) => {
@@ -25,6 +26,27 @@ let callSendAPI = (sender_psid, response) => {
             console.error("Unable to send message:" + err);
         }
     });
+}
+
+let getUserName = (sender_psid) => {
+    return new Promise((resolve, reject) => {
+        // Send the HTTP request to the Messenger Platform
+        request({
+            "uri": `https://graph.facebook.com/${sender_psid}?fields=first_name,last_name,profile_pic&access_token=${PAGE_ACCESS_TOKEN}`,
+
+            "method": "GET"
+
+        }, (err, res, body) => {
+            if (!err) {
+                body = JSON.parse(body);
+                let username = `${body.last_name} ${body.first_name}`
+                resolve(username);
+            } else {
+                console.error("Unable to send message:" + err);
+                reject(err);
+            }
+        });
+    })
 }
 
 let handleGetStarted = (sender_psid) => {
@@ -70,5 +92,6 @@ let handleIntro = (sender_psid) => {
 
 module.exports = {
     handleGetStarted: handleGetStarted,
-    handleIntro: handleIntro
+    handleIntro: handleIntro,
+    getUserName: getUserName
 }
