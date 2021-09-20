@@ -57,7 +57,8 @@ let handleGetStarted = (sender_psid) => {
                     "type": "template",
                     "payload": {
                         "template_type": "button",
-                        "text": la.START,
+                        "text": `Xin chào ${getUserName(sender_psid)}, 
+                        Bạn có thuộc 60% nhóm người gặp bẫy tâm lý về hội chứng bỏ lỡ thông tin hàng ngày không? Mỗi phút trôi qua là hàng triệu tin tức nóng hổi trên mạng xã hội khiến chúng ta dần sinh ra nỗi lo lắng tiềm ẩn có tên là FOMO (Fear Of Missing Out – Tâm lý sợ bỏ lỡ). Vậy không gian nào mới thực sự phù hợp dành cho chúng ta?`,
                         "buttons": [
                             {
                                 "type": "postback",
@@ -92,6 +93,5 @@ let handleIntro = (sender_psid) => {
 
 module.exports = {
     handleGetStarted: handleGetStarted,
-    handleIntro: handleIntro,
-    getUserName: getUserName
+    handleIntro: handleIntro
 }
