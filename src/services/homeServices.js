@@ -33,13 +33,12 @@ let getUserName = (sender_psid) => {
         // Send the HTTP request to the Messenger Platform
         request({
             "uri": `https://graph.facebook.com/${sender_psid}?fields=first_name,last_name,profile_pic&access_token=${PAGE_ACCESS_TOKEN}`,
-
             "method": "GET"
 
         }, (err, res, body) => {
             if (!err) {
                 body = JSON.parse(body);
-                let username = `${body.last_name} ${body.first_name}`
+                let username = `${body.first_name}`
                 resolve(username);
             } else {
                 console.error("Unable to send message:" + err);
@@ -81,16 +80,36 @@ Bạn có thuộc 60% nhóm người gặp bẫy tâm lý về hội chứng b�
 let handleIntro = (sender_psid) => {
     return new Promise(async (resolve, reject) => {
         try {
-            let response = { "text": la.INTRO };
-            await callSendAPI(sender_psid, response);
+            let username1 = await getUserName(sender_psid);
+            let response1 = { "text": la.INTRO };
+            let response2 = { "text": `${username1} tìm kiếm thông tin sự kiện ở thành phố nào nhỉ?` };
+            let response3 = { "response": quickbtns_city };
+            await callSendAPI(sender_psid, response1);
+            await callSendAPI(sender_psid, response2);
+            await callSendAPI(sender_psid, response3);
 
             resolve('done');
         } catch (e) {
             reject(e);
         }
     })
-
 }
+
+let quickbtns_city = [
+    {
+        "content_type": "text",
+        "title": "Hà Nội",
+        "payload": "hanoi"
+    }, {
+        "content_type": "text",
+        "title": "Đà Nẵng",
+        "payload": "danang"
+    }, {
+        "content_type": "text",
+        "title": "TP. Hồ Chí Minh",
+        "payload": "tphcm"
+    }
+]
 
 module.exports = {
     handleGetStarted: handleGetStarted,
