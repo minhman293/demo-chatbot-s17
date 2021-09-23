@@ -80,11 +80,11 @@ Bạn có thuộc 60% nhóm người gặp bẫy tâm lý về hội chứng b�
 let handleIntro = (sender_psid) => {
     return new Promise(async (resolve, reject) => {
         try {
-            let username1 = await getUserName(sender_psid);
+            //let username1 = await getUserName(sender_psid);
             let response1 = { "text": la.INTRO };
             //let response2 = { "text": `${username1} tìm kiếm thông tin sự kiện ở thành phố nào nhỉ?` };
             //let response3 = { "quick_replies": quickbtns_city };
-            let response4 = askCity(sender_psid);
+            let response4 = askCity();
             await callSendAPI(sender_psid, response1);
             //
             await callSendAPI(sender_psid, response4);
@@ -96,12 +96,12 @@ let handleIntro = (sender_psid) => {
     })
 }
 
-let askCity = (sender_psid) => {
-    let username = getUserName(sender_psid);
+let askCity = () => {
+    //let username = getUserName(sender_psid);
     let response = {
         "messaging_type": "RESPONSE",
         "message": {
-            "text": `${username} tìm kiếm thông tin sự kiện ở thành phố nào nhỉ?`,
+            "text": `Bạn tìm kiếm thông tin sự kiện ở thành phố nào nhỉ?`,
             "quick_replies": [
                 {
                     "content_type": "text",
