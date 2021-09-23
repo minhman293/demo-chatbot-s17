@@ -84,7 +84,7 @@ let handleIntro = (sender_psid) => {
             let response1 = { "text": la.INTRO };
             //let response2 = { "text": `${username1} tìm kiếm thông tin sự kiện ở thành phố nào nhỉ?` };
             //let response3 = { "quick_replies": quickbtns_city };
-            let response4 = askCity();
+            let response4 = askCity(sender_psid);
             await callSendAPI(sender_psid, response1);
             //
             await callSendAPI(sender_psid, response4);
@@ -96,11 +96,12 @@ let handleIntro = (sender_psid) => {
     })
 }
 
-let askCity = () => {
+let askCity = (sender_psid) => {
+    let username = getUserName(sender_psid);
     let response = {
         "messaging_type": "RESPONSE",
         "message": {
-            "text": `${username1} tìm kiếm thông tin sự kiện ở thành phố nào nhỉ?`,
+            "text": `${username} tìm kiếm thông tin sự kiện ở thành phố nào nhỉ?`,
             "quick_replies": [
                 {
                     "content_type": "text",
