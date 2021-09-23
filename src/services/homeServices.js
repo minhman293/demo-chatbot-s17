@@ -82,11 +82,12 @@ let handleIntro = (sender_psid) => {
         try {
             let username1 = await getUserName(sender_psid);
             let response1 = { "text": la.INTRO };
-            let response2 = { "text": `${username1} tìm kiếm thông tin sự kiện ở thành phố nào nhỉ?` };
-            let response3 = { "quick_replies": quickbtns_city };
+            //let response2 = { "text": `${username1} tìm kiếm thông tin sự kiện ở thành phố nào nhỉ?` };
+            //let response3 = { "quick_replies": quickbtns_city };
+            let response4 = askCity();
             await callSendAPI(sender_psid, response1);
-            await callSendAPI(sender_psid, response2);
-            await callSendAPI(sender_psid, response3);
+            //
+            await callSendAPI(sender_psid, response4);
 
             resolve('done');
         } catch (e) {
@@ -95,21 +96,46 @@ let handleIntro = (sender_psid) => {
     })
 }
 
-let quickbtns_city = [
-    {
-        "content_type": "text",
-        "title": "Hà Nội",
-        "payload": "hanoi"
-    }, {
-        "content_type": "text",
-        "title": "Đà Nẵng",
-        "payload": "danang"
-    }, {
-        "content_type": "text",
-        "title": "TP. Hồ Chí Minh",
-        "payload": "tphcm"
+let askCity = () => {
+    let response = {
+        "messaging_type": "RESPONSE",
+        "message": {
+            "text": `${username1} tìm kiếm thông tin sự kiện ở thành phố nào nhỉ?`,
+            "quick_replies": [
+                {
+                    "content_type": "text",
+                    "title": "Hà Nội",
+                    "payload": "hanoi"
+                }, {
+                    "content_type": "text",
+                    "title": "Đà Nẵng",
+                    "payload": "danang"
+                }, {
+                    "content_type": "text",
+                    "title": "TP. Hồ Chí Minh",
+                    "payload": "tphcm"
+                }
+            ]
+        }
     }
-]
+    return response;
+}
+
+// let quickbtns_city = [
+//     {
+//         "content_type": "text",
+//         "title": "Hà Nội",
+//         "payload": "hanoi"
+//     }, {
+//         "content_type": "text",
+//         "title": "Đà Nẵng",
+//         "payload": "danang"
+//     }, {
+//         "content_type": "text",
+//         "title": "TP. Hồ Chí Minh",
+//         "payload": "tphcm"
+//     }
+// ]
 
 module.exports = {
     handleGetStarted: handleGetStarted,
