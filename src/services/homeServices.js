@@ -83,7 +83,7 @@ let handleIntro = (sender_psid) => {
             let username1 = await getUserName(sender_psid);
             let response1 = { "text": la.INTRO };
             let response2 = { "text": `${username1} tìm kiếm thông tin sự kiện ở thành phố nào nhỉ?` };
-            let response3 = { "response": quickbtns_city };
+            let response3 = { "quick_replies": quickbtns_city };
             await callSendAPI(sender_psid, response1);
             await callSendAPI(sender_psid, response2);
             await callSendAPI(sender_psid, response3);
