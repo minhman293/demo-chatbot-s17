@@ -3,6 +3,8 @@ import request from "request";
 import { response } from "express";
 const la = require("./lang");
 const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
+const username1 = await getUserName(sender_psid);
+
 
 let callSendAPI = (sender_psid, response) => {
     // Construct the message body
@@ -51,7 +53,7 @@ let getUserName = (sender_psid) => {
 let handleGetStarted = (sender_psid) => {
     return new Promise(async (resolve, reject) => {
         try {
-            let username1 = await getUserName(sender_psid);
+            //let username1 = await getUserName(sender_psid);
             let response = {
                 "attachment": {
                     "type": "template",
@@ -105,15 +107,15 @@ let askCity = () => {
             {
                 "content_type": "text",
                 "title": "Hà Nội",
-                "payload": "hanoi"
+                "payload": "HANOI"
             }, {
                 "content_type": "text",
                 "title": "Đà Nẵng",
-                "payload": "danang"
+                "payload": "DANANG"
             }, {
                 "content_type": "text",
                 "title": "TP. Hồ Chí Minh",
-                "payload": "tphcm"
+                "payload": "TPHCM"
             }
         ]
 
@@ -121,23 +123,22 @@ let askCity = () => {
     return response;
 }
 
-// let quickbtns_city = [
-//     {
-//         "content_type": "text",
-//         "title": "Hà Nội",
-//         "payload": "hanoi"
-//     }, {
-//         "content_type": "text",
-//         "title": "Đà Nẵng",
-//         "payload": "danang"
-//     }, {
-//         "content_type": "text",
-//         "title": "TP. Hồ Chí Minh",
-//         "payload": "tphcm"
-//     }
-// ]
+let handleCityHanoi = () => {
+
+}
+
+let handleCityDanang = () => {
+
+}
+
+let handleCityHCM = () => {
+
+}
 
 module.exports = {
     handleGetStarted: handleGetStarted,
-    handleIntro: handleIntro
+    handleIntro: handleIntro,
+    handleCityHanoi: handleCityHanoi,
+    handleCityDanang: handleCityDanang,
+    handleCityHCM: handleCityHCM
 }

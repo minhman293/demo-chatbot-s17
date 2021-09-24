@@ -136,6 +136,15 @@ async function handlePostback(sender_psid, received_postback) {
         case 'INTRO':
             await homeServices.handleIntro(sender_psid, response);
             break;
+        case 'HANOI':
+            await homeServices.handleCityHanoi(sender_psid, response);
+            break;
+        case 'DANANG':
+            await homeServices.handleCityDanang(sender_psid, response);
+            break;
+        case 'TPHCM':
+            await homeServices.handleCityHCM(sender_psid, response);
+            break;
         default:
             response = { "text": "wrfvouwwrgw" }
     }
