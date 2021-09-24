@@ -123,7 +123,7 @@ let askCity = () => {
     return response;
 }
 
-let handleCityHanoi = () => {
+let handleCityHanoi = (sender_psid) => {
     return new Promise(async (resolve, reject) => {
         try {
             let username1 = await getUserName(sender_psid);
@@ -171,7 +171,7 @@ let handleCityHanoi = () => {
     })
 }
 
-let handleCityDanang = () => {
+let handleCityDanang = (sender_psid) => {
     return new Promise(async (resolve, reject) => {
         try {
             let username1 = await getUserName(sender_psid);
@@ -219,7 +219,7 @@ let handleCityDanang = () => {
     })
 }
 
-let handleCityHCM = () => {
+let handleCityHCM = (sender_psid) => {
     return new Promise(async (resolve, reject) => {
         try {
             let username1 = await getUserName(sender_psid);
