@@ -3,7 +3,7 @@ import request from "request";
 import { response } from "express";
 const la = require("./lang");
 const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
-const username1 = await getUserName(sender_psid);
+
 
 
 let callSendAPI = (sender_psid, response) => {
@@ -53,7 +53,7 @@ let getUserName = (sender_psid) => {
 let handleGetStarted = (sender_psid) => {
     return new Promise(async (resolve, reject) => {
         try {
-            //let username1 = await getUserName(sender_psid);
+            let username1 = await getUserName(sender_psid);
             let response = {
                 "attachment": {
                     "type": "template",
@@ -124,15 +124,147 @@ let askCity = () => {
 }
 
 let handleCityHanoi = () => {
-
+    return new Promise(async (resolve, reject) => {
+        try {
+            let username1 = await getUserName(sender_psid);
+            let response = {
+                "attachment": {
+                    "type": "template",
+                    "payload": {
+                        "template_type": "button",
+                        "text": `${username1} muốn Boo chia sẻ thông tin về chuyên mục gì nhỉ?`,
+                        "buttons": [
+                            {
+                                "type": "postback",
+                                "title": "Sự kiện",
+                                "payload": "EVENT"
+                            },
+                            {
+                                "type": "postback",
+                                "title": "Cuộc thi",
+                                "payload": "CONTEST"
+                            },
+                            {
+                                "type": "postback",
+                                "title": "Tuyển dụng",
+                                "payload": "RECRUIT"
+                            },
+                            {
+                                "type": "postback",
+                                "title": "Tìm việc",
+                                "payload": "EMPLOYER"
+                            },
+                            {
+                                "type": "postback",
+                                "title": "Học bổng",
+                                "payload": "SCHOLARSHIP"
+                            }
+                        ]
+                    }
+                }
+            }
+            await callSendAPI(sender_psid, response);
+            resolve('done');
+        } catch (e) {
+            reject(e);
+        }
+    })
 }
 
 let handleCityDanang = () => {
-
+    return new Promise(async (resolve, reject) => {
+        try {
+            let username1 = await getUserName(sender_psid);
+            let response = {
+                "attachment": {
+                    "type": "template",
+                    "payload": {
+                        "template_type": "button",
+                        "text": `${username1} muốn Boo chia sẻ thông tin về chuyên mục gì nhỉ?`,
+                        "buttons": [
+                            {
+                                "type": "postback",
+                                "title": "Sự kiện",
+                                "payload": "EVENT"
+                            },
+                            {
+                                "type": "postback",
+                                "title": "Cuộc thi",
+                                "payload": "CONTEST"
+                            },
+                            {
+                                "type": "postback",
+                                "title": "Tuyển dụng",
+                                "payload": "RECRUIT"
+                            },
+                            {
+                                "type": "postback",
+                                "title": "Tìm việc",
+                                "payload": "EMPLOYER"
+                            },
+                            {
+                                "type": "postback",
+                                "title": "Học bổng",
+                                "payload": "SCHOLARSHIP"
+                            }
+                        ]
+                    }
+                }
+            }
+            await callSendAPI(sender_psid, response);
+            resolve('done');
+        } catch (e) {
+            reject(e);
+        }
+    })
 }
 
 let handleCityHCM = () => {
-
+    return new Promise(async (resolve, reject) => {
+        try {
+            let username1 = await getUserName(sender_psid);
+            let response = {
+                "attachment": {
+                    "type": "template",
+                    "payload": {
+                        "template_type": "button",
+                        "text": `${username1} muốn Boo chia sẻ thông tin về chuyên mục gì nhỉ?`,
+                        "buttons": [
+                            {
+                                "type": "postback",
+                                "title": "Sự kiện",
+                                "payload": "EVENT"
+                            },
+                            {
+                                "type": "postback",
+                                "title": "Cuộc thi",
+                                "payload": "CONTEST"
+                            },
+                            {
+                                "type": "postback",
+                                "title": "Tuyển dụng",
+                                "payload": "RECRUIT"
+                            },
+                            {
+                                "type": "postback",
+                                "title": "Tìm việc",
+                                "payload": "EMPLOYER"
+                            },
+                            {
+                                "type": "postback",
+                                "title": "Học bổng",
+                                "payload": "SCHOLARSHIP"
+                            }
+                        ]
+                    }
+                }
+            }
+            await callSendAPI(sender_psid, response);
+            resolve('done');
+        } catch (e) {
+            reject(e);
+        }
+    })
 }
 
 module.exports = {
