@@ -98,6 +98,21 @@ let handleIntro = (sender_psid) => {
     })
 }
 
+let handleCityHanoi = (sender_psid) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+
+            let response = { "text": "Bạn muốn Boo chia sẻ thông tin về chuyên mục gì nhỉ?" }
+            let response1 = askCategory();
+            await callSendAPI(sender_psid, response);
+            await callSendAPI(sender_psid, response1);
+            resolve('done');
+        } catch (e) {
+            reject(e);
+        }
+    })
+};
+
 let askCity = () => {
     //let username = getUserName(sender_psid);
     let response = {
@@ -163,26 +178,13 @@ let askCategory = () => {
     return response;
 };
 
-let handleCityHanoi = (sender_psid) => {
-    return new Promise(async (resolve, reject) => {
-        try {
-            let username1 = await getUserName(sender_psid);
-            let response = { "text": `${username1} muốn Boo chia sẻ thông tin về chuyên mục gì nhỉ?` }
-            let response1 = askCategory();
-            await callSendAPI(sender_psid, response);
-            await callSendAPI(sender_psid, response1);
-            resolve('done');
-        } catch (e) {
-            reject(e);
-        }
-    })
-};
+
 
 let handleCityDanang = (sender_psid) => {
     return new Promise(async (resolve, reject) => {
         try {
-            let username1 = await getUserName(sender_psid);
-            let response = { "text": `${username1} muốn Boo chia sẻ thông tin về chuyên mục gì nhỉ?` }
+            // let username1 = await getUserName(sender_psid);
+            let response = { "text": `Bạn muốn Boo chia sẻ thông tin về chuyên mục gì nhỉ?` }
             let response1 = askCategory();
             await callSendAPI(sender_psid, response);
             await callSendAPI(sender_psid, response1);
@@ -196,8 +198,8 @@ let handleCityDanang = (sender_psid) => {
 let handleCityHCM = (sender_psid) => {
     return new Promise(async (resolve, reject) => {
         try {
-            let username1 = await getUserName(sender_psid);
-            let response = { "text": `${username1} muốn Boo chia sẻ thông tin về chuyên mục gì nhỉ?` }
+            // let username1 = await getUserName(sender_psid);
+            let response = { "text": `Bạn muốn Boo chia sẻ thông tin về chuyên mục gì nhỉ?` }
             let response1 = askCategory();
             await callSendAPI(sender_psid, response);
             await callSendAPI(sender_psid, response1);
