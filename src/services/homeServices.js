@@ -123,149 +123,149 @@ let askCity = () => {
     return response;
 }
 
-let handleCityHanoi = (sender_psid) => {
-    return new Promise(async (resolve, reject) => {
-        try {
-            let username1 = await getUserName(sender_psid);
-            let response = {
-                "attachment": {
-                    "type": "template",
-                    "payload": {
-                        "template_type": "button",
-                        "text": `${username1} muốn Boo chia sẻ thông tin về chuyên mục gì nhỉ?`,
-                        "buttons": [
-                            {
-                                "type": "postback",
-                                "title": "Sự kiện",
-                                "payload": "EVENT"
-                            },
-                            {
-                                "type": "postback",
-                                "title": "Cuộc thi",
-                                "payload": "CONTEST"
-                            },
-                            {
-                                "type": "postback",
-                                "title": "Tuyển dụng",
-                                "payload": "RECRUIT"
-                            },
-                            {
-                                "type": "postback",
-                                "title": "Tìm việc",
-                                "payload": "EMPLOYER"
-                            },
-                            {
-                                "type": "postback",
-                                "title": "Học bổng",
-                                "payload": "SCHOLARSHIP"
-                            }
-                        ]
-                    }
-                }
-            }
-            await callSendAPI(sender_psid, response);
-            resolve('done');
-        } catch (e) {
-            reject(e);
-        }
-    })
-}
+// let handleCityHanoi = (sender_psid) => {
+//     return new Promise(async (resolve, reject) => {
+//         try {
+//             let username1 = await getUserName(sender_psid);
+//             let response = {
+//                 "attachment": {
+//                     "type": "template",
+//                     "payload": {
+//                         "template_type": "button",
+//                         "text": `${username1} muốn Boo chia sẻ thông tin về chuyên mục gì nhỉ?`,
+//                         "buttons": [
+//                             {
+//                                 "type": "postback",
+//                                 "title": "Sự kiện",
+//                                 "payload": "EVENT"
+//                             },
+//                             {
+//                                 "type": "postback",
+//                                 "title": "Cuộc thi",
+//                                 "payload": "CONTEST"
+//                             },
+//                             {
+//                                 "type": "postback",
+//                                 "title": "Tuyển dụng",
+//                                 "payload": "RECRUIT"
+//                             },
+//                             {
+//                                 "type": "postback",
+//                                 "title": "Tìm việc",
+//                                 "payload": "EMPLOYER"
+//                             },
+//                             {
+//                                 "type": "postback",
+//                                 "title": "Học bổng",
+//                                 "payload": "SCHOLARSHIP"
+//                             }
+//                         ]
+//                     }
+//                 }
+//             }
+//             await callSendAPI(sender_psid, response);
+//             resolve('done');
+//         } catch (e) {
+//             reject(e);
+//         }
+//     })
+// }
 
-let handleCityDanang = (sender_psid) => {
-    return new Promise(async (resolve, reject) => {
-        try {
-            let username1 = await getUserName(sender_psid);
-            let response = {
-                "attachment": {
-                    "type": "template",
-                    "payload": {
-                        "template_type": "button",
-                        "text": `${username1} muốn Boo chia sẻ thông tin về chuyên mục gì nhỉ?`,
-                        "buttons": [
-                            {
-                                "type": "postback",
-                                "title": "Sự kiện",
-                                "payload": "EVENT"
-                            },
-                            {
-                                "type": "postback",
-                                "title": "Cuộc thi",
-                                "payload": "CONTEST"
-                            },
-                            {
-                                "type": "postback",
-                                "title": "Tuyển dụng",
-                                "payload": "RECRUIT"
-                            },
-                            {
-                                "type": "postback",
-                                "title": "Tìm việc",
-                                "payload": "EMPLOYER"
-                            },
-                            {
-                                "type": "postback",
-                                "title": "Học bổng",
-                                "payload": "SCHOLARSHIP"
-                            }
-                        ]
-                    }
-                }
-            }
-            await callSendAPI(sender_psid, response);
-            resolve('done');
-        } catch (e) {
-            reject(e);
-        }
-    })
-}
+// let handleCityDanang = (sender_psid) => {
+//     return new Promise(async (resolve, reject) => {
+//         try {
+//             let username1 = await getUserName(sender_psid);
+//             let response = {
+//                 "attachment": {
+//                     "type": "template",
+//                     "payload": {
+//                         "template_type": "button",
+//                         "text": `${username1} muốn Boo chia sẻ thông tin về chuyên mục gì nhỉ?`,
+//                         "buttons": [
+//                             {
+//                                 "type": "postback",
+//                                 "title": "Sự kiện",
+//                                 "payload": "EVENT"
+//                             },
+//                             {
+//                                 "type": "postback",
+//                                 "title": "Cuộc thi",
+//                                 "payload": "CONTEST"
+//                             },
+//                             {
+//                                 "type": "postback",
+//                                 "title": "Tuyển dụng",
+//                                 "payload": "RECRUIT"
+//                             },
+//                             {
+//                                 "type": "postback",
+//                                 "title": "Tìm việc",
+//                                 "payload": "EMPLOYER"
+//                             },
+//                             {
+//                                 "type": "postback",
+//                                 "title": "Học bổng",
+//                                 "payload": "SCHOLARSHIP"
+//                             }
+//                         ]
+//                     }
+//                 }
+//             }
+//             await callSendAPI(sender_psid, response);
+//             resolve('done');
+//         } catch (e) {
+//             reject(e);
+//         }
+//     })
+// }
 
-let handleCityHCM = (sender_psid) => {
-    return new Promise(async (resolve, reject) => {
-        try {
-            let username1 = await getUserName(sender_psid);
-            let response = {
-                "attachment": {
-                    "type": "template",
-                    "payload": {
-                        "template_type": "button",
-                        "text": `${username1} muốn Boo chia sẻ thông tin về chuyên mục gì nhỉ?`,
-                        "buttons": [
-                            {
-                                "type": "postback",
-                                "title": "Sự kiện",
-                                "payload": "EVENT"
-                            },
-                            {
-                                "type": "postback",
-                                "title": "Cuộc thi",
-                                "payload": "CONTEST"
-                            },
-                            {
-                                "type": "postback",
-                                "title": "Tuyển dụng",
-                                "payload": "RECRUIT"
-                            },
-                            {
-                                "type": "postback",
-                                "title": "Tìm việc",
-                                "payload": "EMPLOYER"
-                            },
-                            {
-                                "type": "postback",
-                                "title": "Học bổng",
-                                "payload": "SCHOLARSHIP"
-                            }
-                        ]
-                    }
-                }
-            }
-            await callSendAPI(sender_psid, response);
-            resolve('done');
-        } catch (e) {
-            reject(e);
-        }
-    })
-}
+// let handleCityHCM = (sender_psid) => {
+//     return new Promise(async (resolve, reject) => {
+//         try {
+//             let username1 = await getUserName(sender_psid);
+//             let response = {
+//                 "attachment": {
+//                     "type": "template",
+//                     "payload": {
+//                         "template_type": "button",
+//                         "text": `${username1} muốn Boo chia sẻ thông tin về chuyên mục gì nhỉ?`,
+//                         "buttons": [
+//                             {
+//                                 "type": "postback",
+//                                 "title": "Sự kiện",
+//                                 "payload": "EVENT"
+//                             },
+//                             {
+//                                 "type": "postback",
+//                                 "title": "Cuộc thi",
+//                                 "payload": "CONTEST"
+//                             },
+//                             {
+//                                 "type": "postback",
+//                                 "title": "Tuyển dụng",
+//                                 "payload": "RECRUIT"
+//                             },
+//                             {
+//                                 "type": "postback",
+//                                 "title": "Tìm việc",
+//                                 "payload": "EMPLOYER"
+//                             },
+//                             {
+//                                 "type": "postback",
+//                                 "title": "Học bổng",
+//                                 "payload": "SCHOLARSHIP"
+//                             }
+//                         ]
+//                     }
+//                 }
+//             }
+//             await callSendAPI(sender_psid, response);
+//             resolve('done');
+//         } catch (e) {
+//             reject(e);
+//         }
+//     })
+// }
 
 module.exports = {
     handleGetStarted: handleGetStarted,
