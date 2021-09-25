@@ -159,7 +159,8 @@ let askCategory = () => {
                 ]
             }
         }
-    }
+    };
+    return response;
 };
 
 let handleCityHanoi = (sender_psid) => {

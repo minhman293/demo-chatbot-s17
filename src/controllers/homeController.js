@@ -131,6 +131,7 @@ async function handlePostback(sender_psid, received_postback) {
             response = { "text": "Oops, try sending another image." }
             break;
         case 'GET_STARTED':
+        case 'RESTART_BOT':
             await homeServices.handleGetStarted(sender_psid, response);
             break;
         case 'INTRO':
@@ -230,12 +231,12 @@ let setupPersistentMenu = (req, res) => {
     }, (err, res, body) => {
         console.log(body)
         if (!err) {
-            console.log('Setup mersistent menu success!')
+            console.log('Setup persistent menu success!')
         } else {
             console.error("Unable to Setup user profile:" + err);
         }
     });
-    return res.send("Setup mersistent menu success!");
+    return res.send("Setup persistent menu success!");
 }
 
 
