@@ -203,10 +203,46 @@ let setupProfile = async (req, res) => {
     return res.send('setup profile success');
 }
 
+let setupPersistentMenu = (req, res) => {
+
+    let request_body = {
+        "persistent_menu": [
+            {
+                "locale": "default",
+                "composer_input_disabled": false,
+                "call_to_actions": [
+                    {
+                        "type": "postback",
+                        "title": "Khởi Động Lại Bot",
+                        "payload": "RESTART_BOT"
+                    }
+                ]
+            }
+        ]
+    }
+
+    // Send the HTTP request to the Messenger Platform
+    request({
+        "uri": `https://graph.facebook.com/v12.0/me/messenger_profile?access_token=EAAIhrerqUjIBANoz5jcAUywcaPayrWVljCLEXk4zdIINKzMjXw4xQxJI3arsXQ0EE4gZC2nJumLvShS5SG4KZCPtyUHBw9m5dkskavlnMIccwP0RpxwuZB2P8ZBD51a0l0qZB5cLooduHgZB4c6doXscUfJGYlzVi6r6ldAyZAxqU4SvH5TKSRN`,
+        "qs": { "access_token": "EAAIhrerqUjIBANoz5jcAUywcaPayrWVljCLEXk4zdIINKzMjXw4xQxJI3arsXQ0EE4gZC2nJumLvShS5SG4KZCPtyUHBw9m5dkskavlnMIccwP0RpxwuZB2P8ZBD51a0l0qZB5cLooduHgZB4c6doXscUfJGYlzVi6r6ldAyZAxqU4SvH5TKSRN" },
+        "method": "POST",
+        "json": request_body
+    }, (err, res, body) => {
+        console.log(body)
+        if (!err) {
+            console.log('Setup mersistent menu success!')
+        } else {
+            console.error("Unable to Setup user profile:" + err);
+        }
+    });
+    return res.send("Setup mersistent menu success!");
+}
+
 
 module.exports = {
     getHomePage: getHomePage,
     postWebhook: postWebhook,
     getWebhook: getWebhook,
-    setupProfile: setupProfile
+    setupProfile: setupProfile,
+    setupPersistentMenu: setupPersistentMenu
 };
