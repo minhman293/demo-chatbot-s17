@@ -109,15 +109,15 @@ let askCity = () => {
             {
                 "content_type": "text",
                 "title": "Hà Nội",
-                "payload": "HANOI"
+                "payload": "hanoi"
             }, {
                 "content_type": "text",
                 "title": "Đà Nẵng",
-                "payload": "DANANG"
+                "payload": "danang"
             }, {
                 "content_type": "text",
                 "title": "TP. Hồ Chí Minh",
-                "payload": "TPHCM"
+                "payload": "tpHCM"
             }
         ]
 
