@@ -185,7 +185,42 @@ let handleCityDanang = (sender_psid) => {
         try {
             // let username1 = await getUserName(sender_psid);
             //let response = { "text": `Bạn muốn Boo chia sẻ thông tin về chuyên mục gì nhỉ?` }
-            let response1 = askCategory();
+            let response1 = {
+                "attachment": {
+                    "type": "template",
+                    "payload": {
+                        "template_type": "button",
+                        "text": `Bạn muốn Boo chia sẻ thông tin về chuyên mục gì nhỉ? ^^`,
+                        "buttons": [
+                            {
+                                "type": "postback",
+                                "title": "Sự kiện",
+                                "payload": "EVENT"
+                            },
+                            {
+                                "type": "postback",
+                                "title": "Cuộc thi",
+                                "payload": "CONTEST"
+                            },
+                            {
+                                "type": "postback",
+                                "title": "Tuyển dụng",
+                                "payload": "RECRUIT"
+                            },
+                            {
+                                "type": "postback",
+                                "title": "Tìm việc",
+                                "payload": "EMPLOYER"
+                            },
+                            {
+                                "type": "postback",
+                                "title": "Học bổng",
+                                "payload": "SCHOLARSHIP"
+                            }
+                        ]
+                    }
+                }
+            }
             //await callSendAPI(sender_psid, response);
             await callSendAPI(sender_psid, response1);
             resolve('done');
