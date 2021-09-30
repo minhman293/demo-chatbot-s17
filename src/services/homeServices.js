@@ -101,7 +101,7 @@ let handleIntro = (sender_psid) => {
 
 
 let askCity = () => {
-    //let username = getUserName(sender_psid);
+
     let response = {
 
         "text": `Bạn tìm kiếm thông tin sự kiện ở thành phố nào nhỉ?`,
@@ -148,16 +148,16 @@ let askCategory = () => {
                         "title": "Tuyển dụng",
                         "payload": "RECRUIT"
                     },
-                    {
-                        "type": "postback",
-                        "title": "Tìm việc",
-                        "payload": "EMPLOYER"
-                    },
-                    {
-                        "type": "postback",
-                        "title": "Học bổng",
-                        "payload": "SCHOLARSHIP"
-                    }
+                    // {
+                    //     "type": "postback",
+                    //     "title": "Tìm việc",
+                    //     "payload": "EMPLOYER"
+                    // },
+                    // {
+                    //     "type": "postback",
+                    //     "title": "Học bổng",
+                    //     "payload": "SCHOLARSHIP"
+                    // }
                 ]
             }
         }
@@ -168,10 +168,8 @@ let askCategory = () => {
 let handleCityHanoi = (sender_psid) => {
     return new Promise(async (resolve, reject) => {
         try {
-
-            //let response = { "text": "Bạn muốn Boo chia sẻ thông tin về chuyên mục gì nhỉ?" }
             let response1 = askCategory();
-            //await callSendAPI(sender_psid, response);
+
             await callSendAPI(sender_psid, response1);
             resolve('done');
         } catch (e) {
@@ -183,8 +181,7 @@ let handleCityHanoi = (sender_psid) => {
 let handleCityDanang = (sender_psid) => {
     return new Promise(async (resolve, reject) => {
         try {
-            // let username1 = await getUserName(sender_psid);
-            //let response = { "text": `Bạn muốn Boo chia sẻ thông tin về chuyên mục gì nhỉ?` }
+
             let response1 = {
                 "attachment": {
                     "type": "template",
@@ -221,7 +218,7 @@ let handleCityDanang = (sender_psid) => {
                     }
                 }
             }
-            //await callSendAPI(sender_psid, response);
+
             await callSendAPI(sender_psid, response1);
             resolve('done');
         } catch (e) {
@@ -233,10 +230,9 @@ let handleCityDanang = (sender_psid) => {
 let handleCityHCM = (sender_psid) => {
     return new Promise(async (resolve, reject) => {
         try {
-            // let username1 = await getUserName(sender_psid);
-            //let response = { "text": `Bạn muốn Boo chia sẻ thông tin về chuyên mục gì nhỉ?` }
+
             let response1 = askCategory();
-            //await callSendAPI(sender_psid, response);
+
             await callSendAPI(sender_psid, response1);
             resolve('done');
         } catch (e) {
