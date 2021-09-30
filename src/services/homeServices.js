@@ -203,17 +203,17 @@ let handleCityDanang = (sender_psid) => {
                                 "type": "postback",
                                 "title": "Tuyển dụng",
                                 "payload": "RECRUIT"
-                            },
-                            {
-                                "type": "postback",
-                                "title": "Tìm việc",
-                                "payload": "EMPLOYER"
-                            },
-                            {
-                                "type": "postback",
-                                "title": "Học bổng",
-                                "payload": "SCHOLARSHIP"
                             }
+                            // {
+                            //     "type": "postback",
+                            //     "title": "Tìm việc",
+                            //     "payload": "EMPLOYER"
+                            // },
+                            // {
+                            //     "type": "postback",
+                            //     "title": "Học bổng",
+                            //     "payload": "SCHOLARSHIP"
+                            // }
                         ]
                     }
                 }
