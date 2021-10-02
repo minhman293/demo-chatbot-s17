@@ -183,17 +183,17 @@ let handleDanangCity = (sender_psid) => {
                                 "type": "postback",
                                 "title": "Tuyển dụng",
                                 "payload": "RECRUIT"
+                            },
+                            {
+                                "type": "postback",
+                                "title": "Tìm việc",
+                                "payload": "EMPLOYER"
+                            },
+                            {
+                                "type": "postback",
+                                "title": "Học bổng",
+                                "payload": "SCHOLARSHIP"
                             }
-                            // {
-                            //     "type": "postback",
-                            //     "title": "Tìm việc",
-                            //     "payload": "EMPLOYER"
-                            // },
-                            // {
-                            //     "type": "postback",
-                            //     "title": "Học bổng",
-                            //     "payload": "SCHOLARSHIP"
-                            // }
                         ]
                     }
                 }
@@ -244,16 +244,40 @@ let askCategory = () => {
                         "title": "Tuyển dụng",
                         "payload": "RECRUIT"
                     },
-                    // {
-                    //     "type": "postback",
-                    //     "title": "Tìm việc",
-                    //     "payload": "EMPLOYER"
-                    // },
-                    // {
-                    //     "type": "postback",
-                    //     "title": "Học bổng",
-                    //     "payload": "SCHOLARSHIP"
-                    // }
+                    {
+                        "type": "postback",
+                        "title": "Tìm việc",
+                        "payload": "EMPLOYER"
+                    },
+                    {
+                        "type": "postback",
+                        "title": "Học bổng",
+                        "payload": "SCHOLARSHIP"
+                    }
+                ]
+            }
+        }
+    };
+    return response;
+};
+
+let handleEmployer = (sender_psid) => {
+    let response = {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "generic",
+                "elements": [
+                    {
+                        "title": "Tiki tuyển dụng",
+                        "image_url": "https://yt3.ggpht.com/ytc/AKedOLQBSKYqCW3UMx-JeTDSFMKFkQdIPWqwZFUns81fNg=s900-c-k-c0x00ffffff-no-rj",
+                        "subtitle": "Cơ hội cho các bạn thực tập sinh",
+                        "buttons": [{
+                            "type": "web_url",
+                            "url": "https://ivolunteervietnam.com/tp-hcm-nen-tang-thuong-mai-dien-tu-tiki-tuyen-dung-thuc-tap-sinh-tuyen-dung-recruitment-intern.html?fbclid=IwAR3BYcnh9rrYr1o_AM0dAVzT03GeQlOy5z-oLS42wRCmIHh0wQfB6Ot0qCw",
+                            "title": "Xem thêm"
+                        }]
+                    }
                 ]
             }
         }
@@ -266,5 +290,6 @@ module.exports = {
     handleIntro: handleIntro,
     handleHanoiCity: handleHanoiCity,
     handleDanangCity: handleDanangCity,
-    handleHCMCity: handleHCMCity
+    handleHCMCity: handleHCMCity,
+    handleEmployer: handleEmployer
 }
