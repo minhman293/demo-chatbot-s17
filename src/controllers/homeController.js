@@ -191,8 +191,8 @@ let setupProfile = async (req, res) => {
 
     // Send the HTTP request to the Messenger Platform
     await request({
-        "uri": `https://graph.facebook.com/v12.0/me/messenger_profile?access_token=EAAIhrerqUjIBANoz5jcAUywcaPayrWVljCLEXk4zdIINKzMjXw4xQxJI3arsXQ0EE4gZC2nJumLvShS5SG4KZCPtyUHBw9m5dkskavlnMIccwP0RpxwuZB2P8ZBD51a0l0qZB5cLooduHgZB4c6doXscUfJGYlzVi6r6ldAyZAxqU4SvH5TKSRN`,
-        "qs": { "access_token": "EAAIhrerqUjIBANoz5jcAUywcaPayrWVljCLEXk4zdIINKzMjXw4xQxJI3arsXQ0EE4gZC2nJumLvShS5SG4KZCPtyUHBw9m5dkskavlnMIccwP0RpxwuZB2P8ZBD51a0l0qZB5cLooduHgZB4c6doXscUfJGYlzVi6r6ldAyZAxqU4SvH5TKSRN" },
+        "uri": `https://graph.facebook.com/v12.0/me/messenger_profile?access_token=EAAIhrerqUjIBAPAKmhntZCf4DueW1y0Feb9xww0tENz5sEwahMYBRseQoLzqZBKmRxRawasqZAMPZAjytZAnHXW59HMdXXxEPnlCrJ0bd5QKc7DHVj9v5D8iGXvK1wBtfS1Gj6ZBOHUsvdgLUElWDcHEukJmOa7puiC6KzVGiUjyS6nATaS7kG`,
+        "qs": { "access_token": "EAAIhrerqUjIBAPAKmhntZCf4DueW1y0Feb9xww0tENz5sEwahMYBRseQoLzqZBKmRxRawasqZAMPZAjytZAnHXW59HMdXXxEPnlCrJ0bd5QKc7DHVj9v5D8iGXvK1wBtfS1Gj6ZBOHUsvdgLUElWDcHEukJmOa7puiC6KzVGiUjyS6nATaS7kG" },
         "method": "POST",
         "json": request_body
     }, (err, res, body) => {
@@ -227,8 +227,8 @@ let setupPersistentMenu = (req, res) => {
 
     // Send the HTTP request to the Messenger Platform
     request({
-        "uri": `https://graph.facebook.com/v12.0/me/messenger_profile?access_token=EAAIhrerqUjIBANoz5jcAUywcaPayrWVljCLEXk4zdIINKzMjXw4xQxJI3arsXQ0EE4gZC2nJumLvShS5SG4KZCPtyUHBw9m5dkskavlnMIccwP0RpxwuZB2P8ZBD51a0l0qZB5cLooduHgZB4c6doXscUfJGYlzVi6r6ldAyZAxqU4SvH5TKSRN`,
-        "qs": { "access_token": "EAAIhrerqUjIBANoz5jcAUywcaPayrWVljCLEXk4zdIINKzMjXw4xQxJI3arsXQ0EE4gZC2nJumLvShS5SG4KZCPtyUHBw9m5dkskavlnMIccwP0RpxwuZB2P8ZBD51a0l0qZB5cLooduHgZB4c6doXscUfJGYlzVi6r6ldAyZAxqU4SvH5TKSRN" },
+        "uri": `https://graph.facebook.com/v12.0/me/messenger_profile?access_token=EAAIhrerqUjIBAPAKmhntZCf4DueW1y0Feb9xww0tENz5sEwahMYBRseQoLzqZBKmRxRawasqZAMPZAjytZAnHXW59HMdXXxEPnlCrJ0bd5QKc7DHVj9v5D8iGXvK1wBtfS1Gj6ZBOHUsvdgLUElWDcHEukJmOa7puiC6KzVGiUjyS6nATaS7kG`,
+        "qs": { "access_token": "EAAIhrerqUjIBAPAKmhntZCf4DueW1y0Feb9xww0tENz5sEwahMYBRseQoLzqZBKmRxRawasqZAMPZAjytZAnHXW59HMdXXxEPnlCrJ0bd5QKc7DHVj9v5D8iGXvK1wBtfS1Gj6ZBOHUsvdgLUElWDcHEukJmOa7puiC6KzVGiUjyS6nATaS7kG" },
         "method": "POST",
         "json": request_body
     }, (err, res, body) => {
