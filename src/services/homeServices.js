@@ -102,23 +102,45 @@ let askCity = () => {
 
     let response = {
 
-        "text": `Bạn tìm kiếm thông tin sự kiện ở thành phố nào nhỉ?`,
-        "quick_replies": [
-            {
-                "content_type": "text",
-                "title": "Hà Nội",
-                "payload": "hanoi"
-            }, {
-                "content_type": "text",
-                "title": "Đà Nẵng",
-                "payload": "danang"
-            }, {
-                "content_type": "text",
-                "title": "TP. Hồ Chí Minh",
-                "payload": "tpHCM"
+        // "text": `Bạn tìm kiếm thông tin sự kiện ở thành phố nào nhỉ?`,
+        // "quick_replies": [
+        //     {
+        //         "content_type": "text",
+        //         "title": "Hà Nội",
+        //         "payload": "hanoi"
+        //     }, {
+        //         "content_type": "text",
+        //         "title": "Đà Nẵng",
+        //         "payload": "danang"
+        //     }, {
+        //         "content_type": "text",
+        //         "title": "TP. Hồ Chí Minh",
+        //         "payload": "tpHCM"
+        //     }
+        // ]
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "button",
+                "text": `Bạn tìm kiếm thông tin sự kiện ở thành phố nào nhỉ?`,
+                "buttons": [
+                    {
+                        "type": "postback",
+                        "title": "Hà Nội",
+                        "payload": "hanoi"
+                    },
+                    {
+                        "type": "postback",
+                        "title": "Đà Nẵng",
+                        "payload": "danang"
+                    },
+                    {
+                        "type": "postback",
+                        "title": "TP. Hồ Chí Minh",
+                        "payload": "tpHCM"
+                    }]
             }
-        ]
-
+        }
     }
     return response;
 }
