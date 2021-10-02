@@ -146,8 +146,8 @@ async function handlePostback(sender_psid, received_postback) {
         case 'tpHCM':
             await homeServices.handleHCMCity(sender_psid, response);
             break;
-        case 'EMPLOYER':
-            await homeServices.handleEmployer(sender_psid, response);
+        case 'RECRUIT':
+            await homeServices.handleRecruit(sender_psid, response);
             break;
         default:
             response = { "text": "wrfvouwwrgw" }

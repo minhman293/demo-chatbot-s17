@@ -184,16 +184,16 @@ let handleDanangCity = (sender_psid) => {
                                 "title": "Tuyển dụng",
                                 "payload": "RECRUIT"
                             },
-                            {
-                                "type": "postback",
-                                "title": "Tìm việc",
-                                "payload": "EMPLOYER"
-                            },
-                            {
-                                "type": "postback",
-                                "title": "Học bổng",
-                                "payload": "SCHOLARSHIP"
-                            }
+                            // {
+                            //     "type": "postback",
+                            //     "title": "Tìm việc",
+                            //     "payload": "EMPLOYER"
+                            // },
+                            // {
+                            //     "type": "postback",
+                            //     "title": "Học bổng",
+                            //     "payload": "SCHOLARSHIP"
+                            // }
                         ]
                     }
                 }
@@ -244,16 +244,16 @@ let askCategory = () => {
                         "title": "Tuyển dụng",
                         "payload": "RECRUIT"
                     },
-                    {
-                        "type": "postback",
-                        "title": "Tìm việc",
-                        "payload": "EMPLOYER"
-                    },
-                    {
-                        "type": "postback",
-                        "title": "Học bổng",
-                        "payload": "SCHOLARSHIP"
-                    }
+                    // {
+                    //     "type": "postback",
+                    //     "title": "Tìm việc",
+                    //     "payload": "EMPLOYER"
+                    // },
+                    // {
+                    //     "type": "postback",
+                    //     "title": "Học bổng",
+                    //     "payload": "SCHOLARSHIP"
+                    // }
                 ]
             }
         }
@@ -261,10 +261,10 @@ let askCategory = () => {
     return response;
 };
 
-let handleEmployer = (sender_psid) => {
+let handleRecruit = (sender_psid) => {
     return new Promise(async (resolve, reject) => {
         try {
-            let response1 = EmployerTemplate();
+            let response1 = RecruitTemplate();
 
             await callSendAPI(sender_psid, response1);
             resolve('done');
@@ -275,7 +275,7 @@ let handleEmployer = (sender_psid) => {
 };
 
 
-let EmployerTemplate = () => {
+let RecruitTemplate = () => {
     let response = {
         "attachment": {
             "type": "template",
@@ -305,5 +305,5 @@ module.exports = {
     handleHanoiCity: handleHanoiCity,
     handleDanangCity: handleDanangCity,
     handleHCMCity: handleHCMCity,
-    handleEmployer: handleEmployer
+    handleRecruit: handleRecruit
 }
