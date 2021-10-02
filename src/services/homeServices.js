@@ -262,6 +262,20 @@ let askCategory = () => {
 };
 
 let handleEmployer = (sender_psid) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            let response1 = EmployerTemplate();
+
+            await callSendAPI(sender_psid, response1);
+            resolve('done');
+        } catch (e) {
+            reject(e);
+        }
+    })
+};
+
+
+let EmployerTemplate = () => {
     let response = {
         "attachment": {
             "type": "template",
