@@ -98,8 +98,6 @@ let handleIntro = (sender_psid) => {
     })
 }
 
-
-
 let askCity = () => {
 
     let response = {
@@ -125,47 +123,7 @@ let askCity = () => {
     return response;
 }
 
-let askCategory = () => {
-    let response = {
-        "attachment": {
-            "type": "template",
-            "payload": {
-                "template_type": "button",
-                "text": `Bạn muốn Boo chia sẻ thông tin về chuyên mục gì nhỉ? ^^`,
-                "buttons": [
-                    {
-                        "type": "postback",
-                        "title": "Sự kiện",
-                        "payload": "EVENT"
-                    },
-                    {
-                        "type": "postback",
-                        "title": "Cuộc thi",
-                        "payload": "CONTEST"
-                    },
-                    {
-                        "type": "postback",
-                        "title": "Tuyển dụng",
-                        "payload": "RECRUIT"
-                    },
-                    // {
-                    //     "type": "postback",
-                    //     "title": "Tìm việc",
-                    //     "payload": "EMPLOYER"
-                    // },
-                    // {
-                    //     "type": "postback",
-                    //     "title": "Học bổng",
-                    //     "payload": "SCHOLARSHIP"
-                    // }
-                ]
-            }
-        }
-    };
-    return response;
-};
-
-let handleCityHanoi = (sender_psid) => {
+let handleHanoiCity = (sender_psid) => {
     return new Promise(async (resolve, reject) => {
         try {
             let response1 = askCategory();
@@ -178,7 +136,7 @@ let handleCityHanoi = (sender_psid) => {
     })
 };
 
-let handleCityDanang = (sender_psid) => {
+let handleDanangCity = (sender_psid) => {
     return new Promise(async (resolve, reject) => {
         try {
 
@@ -227,7 +185,7 @@ let handleCityDanang = (sender_psid) => {
     })
 };
 
-let handleCityHCM = (sender_psid) => {
+let handleHCMCity = (sender_psid) => {
     return new Promise(async (resolve, reject) => {
         try {
 
@@ -241,10 +199,50 @@ let handleCityHCM = (sender_psid) => {
     })
 };
 
+let askCategory = () => {
+    let response = {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "button",
+                "text": `Bạn muốn Boo chia sẻ thông tin về chuyên mục gì nhỉ? ^^`,
+                "buttons": [
+                    {
+                        "type": "postback",
+                        "title": "Sự kiện",
+                        "payload": "EVENT"
+                    },
+                    {
+                        "type": "postback",
+                        "title": "Cuộc thi",
+                        "payload": "CONTEST"
+                    },
+                    {
+                        "type": "postback",
+                        "title": "Tuyển dụng",
+                        "payload": "RECRUIT"
+                    },
+                    // {
+                    //     "type": "postback",
+                    //     "title": "Tìm việc",
+                    //     "payload": "EMPLOYER"
+                    // },
+                    // {
+                    //     "type": "postback",
+                    //     "title": "Học bổng",
+                    //     "payload": "SCHOLARSHIP"
+                    // }
+                ]
+            }
+        }
+    };
+    return response;
+};
+
 module.exports = {
     handleGetStarted: handleGetStarted,
     handleIntro: handleIntro,
-    handleCityHanoi: handleCityHanoi,
-    handleCityDanang: handleCityDanang,
-    handleCityHCM: handleCityHCM
+    handleHanoiCity: handleHanoiCity,
+    handleDanangCity: handleDanangCity,
+    handleHCMCity: handleHCMCity
 }
