@@ -261,43 +261,43 @@ let askCategory = () => {
     return response;
 };
 
-let handleRecruit = (sender_psid) => {
-    return new Promise(async (resolve, reject) => {
-        try {
-            let response1 = RecruitTemplate();
+// let handleRecruit = (sender_psid) => {
+//     return new Promise(async (resolve, reject) => {
+//         try {
+//             let response1 = RecruitTemplate();
 
-            await callSendAPI(sender_psid, response1);
-            resolve('done');
-        } catch (e) {
-            reject(e);
-        }
-    })
-};
+//             await callSendAPI(sender_psid, response1);
+//             resolve('done');
+//         } catch (e) {
+//             reject(e);
+//         }
+//     })
+// };
 
 
-let RecruitTemplate = () => {
-    let response = {
-        "attachment": {
-            "type": "template",
-            "payload": {
-                "template_type": "generic",
-                "elements": [
-                    {
-                        "title": "Tiki tuyển dụng",
-                        "image_url": "https://yt3.ggpht.com/ytc/AKedOLQBSKYqCW3UMx-JeTDSFMKFkQdIPWqwZFUns81fNg=s900-c-k-c0x00ffffff-no-rj",
-                        "subtitle": "Cơ hội cho các bạn thực tập sinh",
-                        "buttons": [{
-                            "type": "web_url",
-                            "url": "https://ivolunteervietnam.com/tp-hcm-nen-tang-thuong-mai-dien-tu-tiki-tuyen-dung-thuc-tap-sinh-tuyen-dung-recruitment-intern.html?fbclid=IwAR3BYcnh9rrYr1o_AM0dAVzT03GeQlOy5z-oLS42wRCmIHh0wQfB6Ot0qCw",
-                            "title": "Xem thêm"
-                        }]
-                    }
-                ]
-            }
-        }
-    };
-    return response;
-};
+// let RecruitTemplate = () => {
+//     let response = {
+//         "attachment": {
+//             "type": "template",
+//             "payload": {
+//                 "template_type": "generic",
+//                 "elements": [
+//                     {
+//                         "title": "Tiki tuyển dụng",
+//                         "image_url": "https://yt3.ggpht.com/ytc/AKedOLQBSKYqCW3UMx-JeTDSFMKFkQdIPWqwZFUns81fNg=s900-c-k-c0x00ffffff-no-rj",
+//                         "subtitle": "Cơ hội cho các bạn thực tập sinh",
+//                         "buttons": [{
+//                             "type": "web_url",
+//                             "url": "https://ivolunteervietnam.com/tp-hcm-nen-tang-thuong-mai-dien-tu-tiki-tuyen-dung-thuc-tap-sinh-tuyen-dung-recruitment-intern.html?fbclid=IwAR3BYcnh9rrYr1o_AM0dAVzT03GeQlOy5z-oLS42wRCmIHh0wQfB6Ot0qCw",
+//                             "title": "Xem thêm"
+//                         }]
+//                     }
+//                 ]
+//             }
+//         }
+//     };
+//     return response;
+// };
 
 module.exports = {
     handleGetStarted: handleGetStarted,
@@ -305,5 +305,5 @@ module.exports = {
     handleHanoiCity: handleHanoiCity,
     handleDanangCity: handleDanangCity,
     handleHCMCity: handleHCMCity,
-    handleRecruit: handleRecruit
+    //handleRecruit: handleRecruit
 }
