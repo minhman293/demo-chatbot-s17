@@ -133,8 +133,6 @@ async function handlePostback(sender_psid, received_postback) {
             response = { "text": "Oops, try sending another image." }
             break;
         case 'GET_STARTED':
-            response = { "text": "Hello" }
-            break;
         case 'RESTART_BOT':
             await homeServices.handleGetStarted(sender_psid, response);
             break;
