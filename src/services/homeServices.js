@@ -3,7 +3,9 @@ import request from "request";
 import { response } from "express";
 const la = require("./lang");
 const img = require("../public/images/images.js")
-const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
+const co = require('.././controller/save_token.js');
+const PAGE_ACCESS_TOKEN = co.FB_PAGE_ACCESS_TOKEN;
+// const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 
 
 
