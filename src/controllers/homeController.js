@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 dotenv.config();
 import request from "request";
 import homeServices from "../services/homeServices";
+const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 
 // process.env.NAME_VARIABLES
 let getHomePage = (req, res) => {
@@ -170,7 +171,7 @@ function callSendAPI(sender_psid, response) {
     // Send the HTTP request to the Messenger Platform
     request({
         "uri": "https://graph.facebook.com/v11.0/me/messages",
-        "qs": { "access_token": process.env.PAGE_ACCESS_TOKEN },
+        "qs": { "access_token": PAGE_ACCESS_TOKEN },
         "method": "POST",
         "json": request_body
     }, (err, res, body) => {
@@ -191,8 +192,8 @@ let setupProfile = async (req, res) => {
 
     // Send the HTTP request to the Messenger Platform
     await request({
-        "uri": `https://graph.facebook.com/v12.0/me/messenger_profile?access_token=EAAIhrerqUjIBAPAKmhntZCf4DueW1y0Feb9xww0tENz5sEwahMYBRseQoLzqZBKmRxRawasqZAMPZAjytZAnHXW59HMdXXxEPnlCrJ0bd5QKc7DHVj9v5D8iGXvK1wBtfS1Gj6ZBOHUsvdgLUElWDcHEukJmOa7puiC6KzVGiUjyS6nATaS7kG`,
-        "qs": { "access_token": "EAAIhrerqUjIBAPAKmhntZCf4DueW1y0Feb9xww0tENz5sEwahMYBRseQoLzqZBKmRxRawasqZAMPZAjytZAnHXW59HMdXXxEPnlCrJ0bd5QKc7DHVj9v5D8iGXvK1wBtfS1Gj6ZBOHUsvdgLUElWDcHEukJmOa7puiC6KzVGiUjyS6nATaS7kG" },
+        "uri": `https://graph.facebook.com/v12.0/me/messenger_profile?access_token=${PAGE_ACCESS_TOKEN}`,
+        "qs": { "access_token": PAGE_ACCESS_TOKEN },
         "method": "POST",
         "json": request_body
     }, (err, res, body) => {
@@ -227,8 +228,8 @@ let setupPersistentMenu = (req, res) => {
 
     // Send the HTTP request to the Messenger Platform
     request({
-        "uri": `https://graph.facebook.com/v12.0/me/messenger_profile?access_token=EAAIhrerqUjIBAPAKmhntZCf4DueW1y0Feb9xww0tENz5sEwahMYBRseQoLzqZBKmRxRawasqZAMPZAjytZAnHXW59HMdXXxEPnlCrJ0bd5QKc7DHVj9v5D8iGXvK1wBtfS1Gj6ZBOHUsvdgLUElWDcHEukJmOa7puiC6KzVGiUjyS6nATaS7kG`,
-        "qs": { "access_token": "EAAIhrerqUjIBAPAKmhntZCf4DueW1y0Feb9xww0tENz5sEwahMYBRseQoLzqZBKmRxRawasqZAMPZAjytZAnHXW59HMdXXxEPnlCrJ0bd5QKc7DHVj9v5D8iGXvK1wBtfS1Gj6ZBOHUsvdgLUElWDcHEukJmOa7puiC6KzVGiUjyS6nATaS7kG" },
+        "uri": `https://graph.facebook.com/v12.0/me/messenger_profile?access_token=${PAGE_ACCESS_TOKEN}`,
+        "qs": { "access_token": PAGE_ACCESS_TOKEN },
         "method": "POST",
         "json": request_body
     }, (err, res, body) => {
