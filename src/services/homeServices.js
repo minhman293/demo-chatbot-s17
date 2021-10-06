@@ -2,6 +2,7 @@ require("dotenv").config();
 import request from "request";
 import { response } from "express";
 const la = require("./lang");
+const img = require("../public/images/images.js")
 const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 
 
@@ -148,9 +149,10 @@ let askCity = () => {
 let handleHanoiCity = (sender_psid) => {
     return new Promise(async (resolve, reject) => {
         try {
-            let response1 = askCategory();
-
+            let response1 = { "text": 'Bạn muốn Boo chia sẻ thông tin về chuyên mục gì nhỉ? ^^' }
+            let response2 = askCategory();
             await callSendAPI(sender_psid, response1);
+            await callSendAPI(sender_psid, response2);
             resolve('done');
         } catch (e) {
             reject(e);
@@ -161,45 +163,10 @@ let handleHanoiCity = (sender_psid) => {
 let handleDanangCity = (sender_psid) => {
     return new Promise(async (resolve, reject) => {
         try {
-
-            let response1 = {
-                "attachment": {
-                    "type": "template",
-                    "payload": {
-                        "template_type": "button",
-                        "text": `Bạn muốn Boo chia sẻ thông tin về chuyên mục gì nhỉ? ^^`,
-                        "buttons": [
-                            {
-                                "type": "postback",
-                                "title": "Sự kiện",
-                                "payload": "EVENT"
-                            },
-                            {
-                                "type": "postback",
-                                "title": "Cuộc thi",
-                                "payload": "CONTEST"
-                            },
-                            {
-                                "type": "postback",
-                                "title": "Tuyển dụng",
-                                "payload": "RECRUIT"
-                            },
-                            {
-                                "type": "postback",
-                                "title": "Tìm việc",
-                                "payload": "EMPLOYER"
-                            },
-                            {
-                                "type": "postback",
-                                "title": "Học bổng",
-                                "payload": "SCHOLARSHIP"
-                            }
-                        ]
-                    }
-                }
-            }
-
+            let response1 = { "text": 'Bạn muốn Boo chia sẻ thông tin về chuyên mục gì nhỉ? ^^' }
+            let response2 = askCategory();
             await callSendAPI(sender_psid, response1);
+            await callSendAPI(sender_psid, response2);
             resolve('done');
         } catch (e) {
             reject(e);
@@ -210,10 +177,10 @@ let handleDanangCity = (sender_psid) => {
 let handleHCMCity = (sender_psid) => {
     return new Promise(async (resolve, reject) => {
         try {
-
-            let response1 = askCategory();
-
+            let response1 = { "text": 'Bạn muốn Boo chia sẻ thông tin về chuyên mục gì nhỉ? ^^' }
+            let response2 = askCategory();
             await callSendAPI(sender_psid, response1);
+            await callSendAPI(sender_psid, response2);
             resolve('done');
         } catch (e) {
             reject(e);
@@ -226,34 +193,48 @@ let askCategory = () => {
         "attachment": {
             "type": "template",
             "payload": {
-                "template_type": "button",
-                "text": `Bạn muốn Boo chia sẻ thông tin về chuyên mục gì nhỉ? ^^`,
-                "buttons": [
+                "template_type": "generic",
+                "elements": [
                     {
-                        "type": "postback",
                         "title": "Sự kiện",
-                        "payload": "EVENT"
+                        "image_url": img.EVENT_IMG,
+                        "subtitle": "Cùng khám phá những sự kiện hấp dẫn nào",
+                        "buttons": [{
+                            "type": "postback",
+                            "payload": "EVENT",
+                            "title": "Xem thêm"
+                        }]
                     },
                     {
-                        "type": "postback",
                         "title": "Cuộc thi",
-                        "payload": "CONTEST"
+                        "image_url": img.CONTEST_IMG,
+                        "subtitle": "Cơ hội để bạn toả sáng đây rồi",
+                        "buttons": [{
+                            "type": "postback",
+                            "payload": "CONTEST",
+                            "title": "Xem thêm"
+                        }]
                     },
                     {
-                        "type": "postback",
                         "title": "Tuyển dụng",
-                        "payload": "RECRUIT"
+                        "image_url": img.RECRUIT_IMG,
+                        "subtitle": "Cùng xem những cơ hội việc làm, thực tập nào đang chờ bạn nhé",
+                        "buttons": [{
+                            "type": "postback",
+                            "payload": "RECRUIT",
+                            "title": "Xem thêm"
+                        }]
                     },
-                    // {
-                    //     "type": "postback",
-                    //     "title": "Tìm việc",
-                    //     "payload": "EMPLOYER"
-                    // },
-                    // {
-                    //     "type": "postback",
-                    //     "title": "Học bổng",
-                    //     "payload": "SCHOLARSHIP"
-                    // }
+                    {
+                        "title": "Học bổng",
+                        "image_url": img.SCHORLASHIP_IMG,
+                        "subtitle": "Cứ đi rồi sẽ đến",
+                        "buttons": [{
+                            "type": "postback",
+                            "payload": "SCHORLASHIP",
+                            "title": "Xem thêm"
+                        }]
+                    },
                 ]
             }
         }
@@ -284,7 +265,7 @@ let RecruitTemplate = () => {
                 "elements": [
                     {
                         "title": "Tiki tuyển dụng",
-                        "image_url": "https://yt3.ggpht.com/ytc/AKedOLQBSKYqCW3UMx-JeTDSFMKFkQdIPWqwZFUns81fNg=s900-c-k-c0x00ffffff-no-rj",
+                        "image_url": img.RECRUIT_TPL_IMG_1,
                         "subtitle": "Cơ hội cho các bạn thực tập sinh",
                         "buttons": [{
                             "type": "web_url",
