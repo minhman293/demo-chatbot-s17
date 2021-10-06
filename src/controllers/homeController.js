@@ -1,11 +1,12 @@
 //require('dotenv').config();
-let fs = require('fs')
+let fs = require('fs');
+const path = require('path');
 import dotenv from "dotenv";
 dotenv.config();
 import request from "request";
 import homeServices from "../services/homeServices";
 console.log('TOKEN!', process.env.PAGE_ACCESS_TOKEN)
-const PAGE_ACCESS_TOKEN = fs.readFileSync('./save.json', 'utf8')
+const PAGE_ACCESS_TOKEN = fs.readFileSync(path.join(__dirname, 'save_token.json'), 'utf8')
 PAGE_ACCESS_TOKEN = JSON.parse(PAGE_ACCESS_TOKEN);
 PAGE_ACCESS_TOKEN = PAGE_ACCESS_TOKEN["token"]
 
