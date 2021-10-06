@@ -1,14 +1,10 @@
 //require('dotenv').config();
-let fs = require('fs');
-const path = require('path');
 import dotenv from "dotenv";
 dotenv.config();
 import request from "request";
 import homeServices from "../services/homeServices";
-console.log('TOKEN!', process.env.PAGE_ACCESS_TOKEN)
-const PAGE_ACCESS_TOKEN = fs.readFileSync(path.join(__dirname, 'save_token.json'), 'utf8')
-PAGE_ACCESS_TOKEN = JSON.parse(PAGE_ACCESS_TOKEN);
-PAGE_ACCESS_TOKEN = PAGE_ACCESS_TOKEN["token"]
+const co = require('./save_token.js');
+const PAGE_ACCESS_TOKEN = co.FB_PAGE_ACCESS_TOKEN
 
 // process.env.NAME_VARIABLES
 let getHomePage = (req, res) => {
