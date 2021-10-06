@@ -34,7 +34,6 @@ let postWebhook = (req, res) => {
             if (webhook_event.message) {
                 handleMessage(sender_psid, webhook_event.message);
             } else if (webhook_event.postback) {
-                console.log('calback: ', webhook_event.postback.payload)
                 handlePostback(sender_psid, webhook_event.postback);
             }
         });
@@ -134,7 +133,6 @@ async function handlePostback(sender_psid, received_postback) {
             break;
         case 'GET_STARTED':
             response = { "text": "Hello" }
-            console.log("check!getstarted")
             break;
         case 'RESTART_BOT':
             await homeServices.handleGetStarted(sender_psid, response);
@@ -169,12 +167,14 @@ function callSendAPI(sender_psid, response) {
         "recipient": {
             "id": sender_psid
         },
-        "message": response
+        "message": {
+            "text": "hello"
+        }
     }
 
     // Send the HTTP request to the Messenger Platform
     request({
-        "uri": "https://graph.facebook.com/v11.0/me/messages",
+        "uri": "https://graph.facebook.com/v12.0/me/messages",
         "qs": { "access_token": PAGE_ACCESS_TOKEN },
         "method": "POST",
         "json": request_body
