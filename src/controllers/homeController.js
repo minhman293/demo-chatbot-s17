@@ -3,7 +3,8 @@ import dotenv from "dotenv";
 dotenv.config();
 import request from "request";
 import homeServices from "../services/homeServices";
-const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
+console.log('!TOKEN!', process.env.PAGE_ACCESS_TOKEN)
+const PAGE_ACCESS_TOKEN = "EAAIhrerqUjIBAJo86hfdgQ4hJ6RFJfmWQMNwE8XiCZAyv4yq8FG4YhOX8fTiMhzRwcjfMWA1u1LyPQyRPle5AbB78ZAKL685ZCEsKouOpCkET3ZC28A9nyb6gZBABgcORZAZC9tQAKG17Rlasi5ZCpRR86e25vIOE042C9ZCUWHq1CSsUdMX9maeT"
 
 // process.env.NAME_VARIABLES
 let getHomePage = (req, res) => {
